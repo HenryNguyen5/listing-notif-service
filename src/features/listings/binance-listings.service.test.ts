@@ -1,7 +1,7 @@
 import { Binance } from "binance-api-node";
 import { DeepPartial, DeepRequired } from "../../lib/types";
 import { BinanceListingService } from "./binance-listings.service";
-import { TEST_TICKERS } from "./_fixtures";
+import { TEST_TICKERS_1 } from "./_fixtures";
 
 describe("BinanceListingServiceTests", () => {
   function mock<T>(m: DeepPartial<T>): DeepRequired<T> {
@@ -31,6 +31,6 @@ describe("BinanceListingServiceTests", () => {
       }
     });
 
-    onTickerUpdate(TEST_TICKERS);
+    onTickerUpdate(TEST_TICKERS_1);
   });
 });

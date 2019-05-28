@@ -27,7 +27,9 @@ const binance = {
 
 export type DiscordConfig = typeof discord;
 const discord = {
-  token: getEnv(DiscordEnv.API_TOKEN)
+  token: getEnv(DiscordEnv.API_TOKEN),
+  guildIds: ["348975939826483203"],
+  channelIds: ["348976269280673792"]
 };
 
 export type AppConfig = typeof appConfig;

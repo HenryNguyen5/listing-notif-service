@@ -1,6 +1,6 @@
 import { Ticker } from "./types";
 
-export const TEST_TICKERS: Ticker[] = [
+export const TEST_TICKERS_1: Ticker[] = [
   { symbol: "LTCTUSD" },
   { symbol: "LTCPAX" },
   { symbol: "TRXPAX" },
@@ -23,6 +23,88 @@ export const TEST_TICKERS: Ticker[] = [
   { symbol: "ZECUSDC" },
   { symbol: "IOSTBNB" },
   { symbol: "IOSTUSDT" },
+  { symbol: "CELRBNB" },
+  { symbol: "CELRBTC" },
+  { symbol: "CELRUSDT" },
+  { symbol: "ADAPAX" },
+  { symbol: "ADAUSDC" },
+  { symbol: "NEOPAX" },
+  { symbol: "NEOUSDC" },
+  { symbol: "NANOUSDT" },
+  { symbol: "OMGUSDT" },
+  { symbol: "THETAUSDT" },
+  { symbol: "ENJUSDT" },
+  { symbol: "MITHUSDT" }
+];
+
+export const TEST_TICKERS_2: Ticker[] = [
+  { symbol: "LTCTUSD" },
+  { symbol: "LTCPAX" },
+  { symbol: "TRXPAX" },
+  { symbol: "BTTBTC" },
+  { symbol: "BTTBNB" },
+  { symbol: "BTTUSDT" },
+  { symbol: "BNBUSDS" },
+  { symbol: "BTCUSDS" },
+  { symbol: "USDSUSDT" },
+  { symbol: "USDSPAX" },
+  { symbol: "ONGBNB" },
+  { symbol: "ONGBTC" },
+  { symbol: "ONGUSDT" },
+  { symbol: "ZRXBNB" },
+  { symbol: "ZRXUSDT" },
+
+  { symbol: "ZRXUSDC" },
+
+  { symbol: "FETBTC" },
+  { symbol: "FETUSDT" },
+  { symbol: "BATUSDT" },
+  { symbol: "ZECUSDT" },
+  { symbol: "ZECUSDC" },
+  { symbol: "IOSTBNB" },
+  { symbol: "IOSTUSDT" },
+  { symbol: "CELRBNB" },
+  { symbol: "CELRBTC" },
+  { symbol: "CELRUSDT" },
+  { symbol: "ADAPAX" },
+  { symbol: "ADAUSDC" },
+  { symbol: "NEOPAX" },
+  { symbol: "NEOUSDC" },
+  { symbol: "NANOUSDT" },
+  { symbol: "OMGUSDT" },
+  { symbol: "THETAUSDT" },
+  { symbol: "ENJUSDT" },
+  { symbol: "MITHUSDT" }
+];
+
+export const TEST_TICKERS_3: Ticker[] = [
+  { symbol: "LTCTUSD" },
+  { symbol: "LTCPAX" },
+  { symbol: "TRXPAX" },
+  { symbol: "BTTBTC" },
+  { symbol: "BTTBNB" },
+  { symbol: "BTTUSDT" },
+  { symbol: "BNBUSDS" },
+  { symbol: "BTCUSDS" },
+  { symbol: "USDSUSDT" },
+  { symbol: "USDSPAX" },
+  { symbol: "ONGBNB" },
+  { symbol: "ONGBTC" },
+  { symbol: "ONGUSDT" },
+
+  { symbol: "ZRXBNB" },
+  { symbol: "ZRXUSDT" },
+
+  { symbol: "FETBTC" },
+  { symbol: "FETUSDT" },
+  { symbol: "BATUSDT" },
+  { symbol: "ZECUSDT" },
+  { symbol: "ZECUSDC" },
+  { symbol: "IOSTBNB" },
+  { symbol: "IOSTUSDT" },
+
+  { symbol: "IOSTUSDC" },
+
   { symbol: "CELRBNB" },
   { symbol: "CELRBTC" },
   { symbol: "CELRUSDT" },

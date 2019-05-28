@@ -1,6 +1,6 @@
 import { Binance } from "binance-api-node";
 import { Listener, ListingService } from "./listing-service.interface";
-import { filterTickers } from "./listing.utils";
+import { filterTickers, tickerDiffer } from "./listing.utils";
 import { Ticker } from "./types";
 
 export class BinanceListingService implements ListingService {
@@ -8,10 +8,27 @@ export class BinanceListingService implements ListingService {
   private filters: RegExp[] = [];
   private listeners: Listener[] = [];
 
+  private differ: ReturnType<typeof tickerDiffer> | null = null;
+
   constructor(client: Binance) {
     this.client = client;
     this.onTickerUpdate = this.onTickerUpdate.bind(this);
     this.init();
+  }
+
+  public async enableDiffing() {
+    this.differ = tickerDiffer();
+
+    const seed = await this.client.allBookTickers();
+
+    for (const [symbol] of Object.entries(seed)) {
+      console.log("seeding with:", symbol);
+      this.differ([{ symbol }]);
+    }
+  }
+
+  public disableDiffing() {
+    this.differ = null;
   }
 
   public installFilter(filter: RegExp): void {
@@ -30,11 +47,19 @@ export class BinanceListingService implements ListingService {
     if (this.listeners.length === 0) {
       return;
     }
-    console.log("\n\n--Ticker Update--");
+    console.log("\n\n--Ticker Update--", Date.now());
 
-    const tickerSet = filterTickers(tickers, this.filters);
+    const tickerSet: Ticker[] = [];
 
-    for (const ticker of tickerSet.values()) {
+    const filteredTickerSet = filterTickers(tickers, this.filters);
+    tickerSet.push(...filteredTickerSet);
+
+    if (this.differ) {
+      const diffTickerSet = this.differ(tickers);
+      tickerSet.push(...diffTickerSet);
+    }
+
+    for (const ticker of tickerSet) {
       for (const listener of this.listeners) {
         listener(ticker.symbol);
       }

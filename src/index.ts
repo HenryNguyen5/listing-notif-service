@@ -1,8 +1,17 @@
-import { createListingService } from "./features/listings";
 import { appConfig } from "./config";
+import { createListingService } from "./features/listings";
+import { createNotificationService } from "./features/notification";
 
-const listingService = createListingService(appConfig);
-listingService.installFilter(/bTc/i);
-listingService.registerListener(symbol => {
-  console.log(symbol);
-});
+async function main() {
+  const listingService = createListingService(appConfig);
+  listingService.enableDiffing();
+
+  const notificationService = await createNotificationService(appConfig);
+  notificationService.sendMessage(" Listening for new listings on binance....");
+
+  listingService.registerListener(symbol => {
+    notificationService.sendMessage(`Possible new listing: ${symbol}`);
+  });
+}
+
+main();
