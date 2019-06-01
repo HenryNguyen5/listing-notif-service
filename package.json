@@ -1,12 +1,17 @@
 {
   "name": "binance-listing-bot",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "license": "MIT",
+  "engines": {
+    "node": "12.x"
+  },
   "scripts": {
     "build": "tsc",
     "test": "jest",
-    "start": "yarn build && source ./.env && node ./dist"
+    "heroku-postbuild": "yarn build",
+    "start:dev": "yarn build && source ./.env && node ./dist",
+    "start": "node ./dist"
   },
   "devDependencies": {
     "@types/jest": "^24.0.13",
