@@ -1,1 +1,1 @@
-web: yarn start
+listing-notifier-worker: yarn start
