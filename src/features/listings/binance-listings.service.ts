@@ -47,8 +47,6 @@ export class BinanceListingService implements ListingService {
     if (this.listeners.length === 0) {
       return;
     }
-    console.log("\n\n--Ticker Update--", Date.now());
-
     const tickerSet: Ticker[] = [];
 
     const filteredTickerSet = filterTickers(tickers, this.filters);

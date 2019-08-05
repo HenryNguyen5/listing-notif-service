@@ -31,7 +31,7 @@ export function tickerDiffer(): (newTickers: Ticker[]) => Ticker[] {
       }
     }
 
-    if (shouldSkip) {
+    if (shouldSkip || diff.length === 0) {
       return [];
     }
 
